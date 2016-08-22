@@ -1,4 +1,4 @@
-FROM 
+FROM alpine
 ENV CPU=1 \
 HDD=1 \
 IO=1 

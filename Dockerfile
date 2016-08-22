@@ -6,7 +6,9 @@ IO=1
 #  stress \
 #  --no-install-recommends \
 #  && rm -rf /var/lib/apt/lists/*
-RUN apk update && apk add --update stress && rm -rf /var/cache/apk/*
+RUN wget http://dl-3.alpinelinux.org/alpine/edge/testing/x86_64/stress-1.0.4-r0.apk \
+  -o /var/cache/apk/stress.apk && \
+  apk add --update /var/cache/apk/stress.apk && rm -rf /var/cache/apk/*
 ADD run.sh /usr/local/bin
 cmd ["run.sh"]
 
